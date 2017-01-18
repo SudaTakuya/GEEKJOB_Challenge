@@ -5,10 +5,10 @@ import java.io.Serializable;
 //課題３ フォームの入力内容を保存するJavaBeansのクラス
 public class UserDataBeans implements Serializable{
 	private String name;	//名前
-	private int year;		//生年月日の年
-	private int month;		//生年月日の月
-	private int day;		//生年月日の日
-	private int type;		//種別
+	private String year;		//生年月日の年
+	private String month;		//生年月日の月
+	private String day;		//生年月日の日
+	private String type;		//種別
 	private String tell;		//電話番号
 	private String comment;	//自己紹介文
 
@@ -22,35 +22,35 @@ public class UserDataBeans implements Serializable{
 		this.name = name;
 	}
 
-	public int getYear() {
+	public String getYear() {
 		return year;
 	}
 
-	public void setYear(int year) {
+	public void setYear(String year) {
 		this.year = year;
 	}
 
-	public int getMonth() {
+	public String getMonth() {
 		return month;
 	}
 
-	public void setMonth(int month) {
+	public void setMonth(String month) {
 		this.month = month;
 	}
 
-	public int getDay() {
+	public String getDay() {
 		return day;
 	}
 
-	public void setDay(int day) {
+	public void setDay(String day) {
 		this.day = day;
 	}
 
-	public int getType() {
+	public String getType() {
 		return type;
 	}
 
-	public void setType(int type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 
@@ -70,6 +70,5 @@ public class UserDataBeans implements Serializable{
 		this.comment = comment;
 	}
 
-
-
 }
+

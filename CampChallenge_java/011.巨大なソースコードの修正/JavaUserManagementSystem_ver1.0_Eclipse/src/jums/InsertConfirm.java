@@ -47,10 +47,10 @@ public class InsertConfirm extends HttpServlet {
           //課題３ insert.jspからのリクエストをUseDataBeansに格納してセッションに格納するように変更
             UserDataBeans userDataBeans = new UserDataBeans();
             userDataBeans.setName(name);
-            userDataBeans.setYear(Integer.parseInt(year));
-            userDataBeans.setMonth(Integer.parseInt(month));
-            userDataBeans.setDay(Integer.parseInt(day));
-            userDataBeans.setType(Integer.parseInt(type));
+            userDataBeans.setYear(year);
+            userDataBeans.setMonth(month);
+            userDataBeans.setDay(day);
+            userDataBeans.setType(type);
             userDataBeans.setTell(tell);
             userDataBeans.setComment(comment);
             session.setAttribute("userDataBeans", userDataBeans);
@@ -68,6 +68,7 @@ public class InsertConfirm extends HttpServlet {
 
             request.getRequestDispatcher("/insertconfirm.jsp").forward(request, response);
         }catch(Exception e){
+        	e.printStackTrace();
             request.setAttribute("error", e.getMessage());
             request.getRequestDispatcher("/error.jsp").forward(request, response);
         }

@@ -49,7 +49,7 @@ public class InsertResult extends HttpServlet {
             userdata.setName(userDataBeans.getName());
             Calendar birthday = Calendar.getInstance();
             userdata.setBirthday(birthday.getTime());
-            userdata.setType(userDataBeans.getType());
+            userdata.setType(Integer.parseInt(userDataBeans.getType()));
             userdata.setTell(userDataBeans.getTell());
             userdata.setComment(userDataBeans.getComment());
 
