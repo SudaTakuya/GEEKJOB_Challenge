@@ -17,8 +17,15 @@
     </head>
     <body>
     <%--課題３ UserDataBeansを利用した処理に変更 --%>
-
-    <% if(!userDataBeans.getName().equals("")){ %>
+	<%--課題４ フォームの未入力チェックが「名前」対してのみ行われている。
+		その他の入力内容についてもから文字でないことを確認する処理を追加 --%>
+    <% if(!userDataBeans.getName().equals("")
+    		&& !userDataBeans.getYear().equals("")
+    		&& !userDataBeans.getMonth().equals("")
+    		&& !userDataBeans.getDay().equals("")
+    		&& !userDataBeans.getType().equals("")
+    		&& !userDataBeans.getTell().equals("")
+    		&& !userDataBeans.getComment().equals("")){ %>
     	<h1>登録確認</h1>
     	名前:<%= userDataBeans.getName() %><br>
     	生年月日:<%= userDataBeans.getYear()+"年"+userDataBeans.getMonth()+"月"+userDataBeans.getDay()+"日"%><br>

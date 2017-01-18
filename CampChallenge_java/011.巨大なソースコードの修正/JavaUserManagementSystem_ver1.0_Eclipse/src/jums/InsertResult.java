@@ -48,6 +48,9 @@ public class InsertResult extends HttpServlet {
             UserDataBeans userDataBeans = (UserDataBeans)session.getAttribute("userDataBeans");
             userdata.setName(userDataBeans.getName());
             Calendar birthday = Calendar.getInstance();
+            //課題６ CalendarインスタンスにUserDataBeansの生年月日データを設定する処理を追加
+            birthday.set(Integer.parseInt(userDataBeans.getYear()), Integer.parseInt(userDataBeans.getMonth()) - 1,
+            		Integer.parseInt(userDataBeans.getDay()));
             userdata.setBirthday(birthday.getTime());
             userdata.setType(Integer.parseInt(userDataBeans.getType()));
             userdata.setTell(userDataBeans.getTell());

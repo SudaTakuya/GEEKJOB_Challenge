@@ -1,6 +1,7 @@
 package jums;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,7 +27,10 @@ public class Insert extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         session.setAttribute("ac", (int) (Math.random() * 1000));
-        request.getRequestDispatcher("/insert.jsp").forward(request, response);   
+        //課題５ insertconfirm.jspからのアクセスかを判断する"done"文字列をセッションに保存
+        String done = "";
+        session .setAttribute("done", done);
+        request.getRequestDispatcher("/insert.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -55,7 +59,13 @@ public class Insert extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+    	//課題５ insertconfirm.jspからのPOSTリクエストを受けた場合はセッションに"done"文字列を保存し、
+    	//		 insert.jspにフォワードする
+    	HttpSession session = request.getSession();
+    	String done = "done";
+    	session.setAttribute("done", done);
+    	request.getRequestDispatcher("/insert.jsp").forward(request, response);
+        //processRequest(request, response);
     }
 
     /**

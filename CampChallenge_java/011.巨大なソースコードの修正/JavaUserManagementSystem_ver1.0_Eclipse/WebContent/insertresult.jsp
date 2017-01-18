@@ -30,6 +30,9 @@
         電話番号:<%= hs.getAttribute("tell")%><br>
         自己紹介:<%= hs.getAttribute("comment")%><br>
         --%>
+
+        <%--課題7 セッションの利用が終了したタイミングでセッションを削除する --%>
+        <% hs.invalidate(); %>
         以上の内容で登録しました。<br>
         <%--課題1 JumsHelperクラスのhome()メソッドを用いてトップへのリンクを追加 --%>
         <%= JumsHelper.getInstance().home() %>
