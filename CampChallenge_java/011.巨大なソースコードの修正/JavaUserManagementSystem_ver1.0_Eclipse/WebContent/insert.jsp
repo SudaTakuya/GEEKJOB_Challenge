@@ -71,7 +71,7 @@
 	            <option value="">----</option>
 	            <%
 	            for(int i=1950; i<=2010; i++){ %>
-	            	<% if(i == Integer.parseInt(userDataBeans.getYear())) {%>
+	            	<% if(!userDataBeans.getYear().equals("") && i == Integer.parseInt(userDataBeans.getYear())) {%>
 						<option value="<%=i %>" selected> <%=i%> </option>
 	            	<% }else{ %>
 	            		<option value="<%=i%>"> <%=i%> </option>
@@ -83,7 +83,7 @@
 	            <option value="">--</option>
 	            <%
 	            for(int i = 1; i<=12; i++){ %>
-	            	<% if(i == Integer.parseInt(userDataBeans.getMonth())){ %>
+	            	<% if(!userDataBeans.getMonth().equals("") && i == Integer.parseInt(userDataBeans.getMonth())){ %>
 						<option value="<%=i %>" selected> <%=i%> </option>
 	            	<% }else{ %>
 	            		<option value="<%=i%>"><%=i%></option>
@@ -94,7 +94,7 @@
 	            <option value="">--</option>
 	            <%
 	            for(int i = 1; i<=31; i++){ %>
-	            	<% if(i == Integer.parseInt(userDataBeans.getDay())){ %>
+	            	<% if(!userDataBeans.getDay().equals("") && i == Integer.parseInt(userDataBeans.getDay())){ %>
 						<option value="<%=i %>" selected> <%=i%> </option>
 	            	<% }else{ %>
 	            		<option value="<%=i%>"><%=i%></option>
@@ -105,7 +105,7 @@
 
 	        種別:
 	        <br>
-	        <% switch((Integer.parseInt(userDataBeans.getType()))) {
+	        <% switch(Integer.parseInt(userDataBeans.getType())) {
 
 	  			case 1 : %>
 					<input type="radio" name="type" value="1" checked>エンジニア<br>

@@ -7,6 +7,8 @@
     HttpSession hs = request.getSession();
 	//課題３ UserDataBeansインスタンスをセッションより取得
 	UserDataBeans userDataBeans = (UserDataBeans)hs.getAttribute("userDataBeans");
+	//課題４ フォーム入力チェック文字列をリクエストより取得
+	String checkstr = (String) request.getAttribute("checkstr");
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -18,14 +20,8 @@
     <body>
     <%--課題３ UserDataBeansを利用した処理に変更 --%>
 	<%--課題４ フォームの未入力チェックが「名前」対してのみ行われている。
-		その他の入力内容についてもから文字でないことを確認する処理を追加 --%>
-    <% if(!userDataBeans.getName().equals("")
-    		&& !userDataBeans.getYear().equals("")
-    		&& !userDataBeans.getMonth().equals("")
-    		&& !userDataBeans.getDay().equals("")
-    		&& !userDataBeans.getType().equals("")
-    		&& !userDataBeans.getTell().equals("")
-    		&& !userDataBeans.getComment().equals("")){ %>
+		入力フォームチェック文字が初期値である場合のみ確認表示を行うように変更 --%>
+    <% if(checkstr.equals("")){ %>
     	<h1>登録確認</h1>
     	名前:<%= userDataBeans.getName() %><br>
     	生年月日:<%= userDataBeans.getYear()+"年"+userDataBeans.getMonth()+"月"+userDataBeans.getDay()+"日"%><br>
@@ -51,6 +47,7 @@
         </form>
     <% }else{ %>
         <h1>入力が不完全です</h1>
+        <p><%= checkstr %>が不足しています。</p>
     <% } %>
         <form action="insert" method="POST">
             <input type="submit" name="no" value="登録画面に戻る">

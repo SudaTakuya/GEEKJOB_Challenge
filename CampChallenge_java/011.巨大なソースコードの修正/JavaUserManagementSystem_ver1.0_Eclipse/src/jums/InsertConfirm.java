@@ -64,6 +64,11 @@ public class InsertConfirm extends HttpServlet {
             session.setAttribute("tell", tell);
             session.setAttribute("comment", comment);
             */
+
+            //課題４ 不足している入力項目をあらわす文字列を取得してリクエストに保存する
+            String checkstr = userDataBeans.formCheck();
+            request.setAttribute("checkstr", checkstr);
+
             System.out.println("Session updated!!");
 
             request.getRequestDispatcher("/insertconfirm.jsp").forward(request, response);

@@ -70,5 +70,36 @@ public class UserDataBeans implements Serializable{
 		this.comment = comment;
 	}
 
+	//課題４ 不足している入力項目をあらわす文字列を返すメソッドを追加
+	public String formCheck(){
+		StringBuilder sb = new StringBuilder();
+
+		if(name.trim().equals("")){
+			sb.append("名前、");
+		}
+		if(year.trim().equals("")){
+			sb.append("年、");
+		}
+		if(month.trim().equals("")){
+			sb.append("月、");
+		}
+		if(day.trim().equals("")){
+			sb.append("日、");
+		}
+		if(type.trim().equals("")){
+			sb.append("種別、");
+		}
+		if(tell.trim().equals("")){
+			sb.append("電話番号、");
+		}
+		if(comment.trim().equals("")){
+			sb.append("自己紹介文、");
+		}
+
+		String checkstr = sb.toString();
+
+		return checkstr;
+	}
+
 }
 
